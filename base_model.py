@@ -30,6 +30,13 @@ class BaseModelCkpt:
         self.model = model.to(device)
         self.device = device
 
+    def __del__(self):
+        """Enforce propagation of deletion to all related pytorch object"""
+        del self.model 
+        del self.tokenizer
+        return super(BaseModelCkpt, self).__del__(self)
+
+
     def generate_images(self, prompt: str, negative_prompt: str, guidance: float, img_count: int=2, num_inference_steps: int=200):
         conditioning = self.tokenizer.build_conditioning_tensor(prompt).to(self.device)
         negative_conditioning = self.tokenizer.build_conditioning_tensor(negative_prompt).to(self.device)
@@ -39,7 +46,7 @@ class BaseModelCkpt:
     def ipynb_display(self, image):
         """Use colab backend to display an image. Do not work outside."""
         bio = io.BytesIO()
-        image.save(bio, formar="png")
+        image.save(bio, format="png")
         display(Image(bio.getvalue(), format="png"))
 
     def save_to_drive(self, image, path: str, base: str=DEFAULT_WORK_DIR):
