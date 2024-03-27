@@ -54,7 +54,8 @@ class BaseModelCkpt:
             image.save(imgf, format="png")
         print("Saved image to \"{:s}\"".format(path))
 
-    def test_default_generate(self)
+    def test_default_generate(self):
+        raise NotImplementedError
 
 class BasePromptGenerator:
     def generate_prompts(self, composition: List[Dict], traits: List[List[str]], output_str: bool=True):
