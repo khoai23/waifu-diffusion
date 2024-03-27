@@ -28,11 +28,11 @@ class WaifuDiffusionModel(BaseModelCkpt, BooruPromptGenerator):
                 "short": (("(short hair, {hair_properties:s}, {hair_color:s} hair:2.0)",), ("long hair", )),
                 # extra option to exclusively kill ornaments
                 "no_ornament": ((), ("(hair ornament)",))
-            }
+            },
             "eyes": {
                 "default": (("({eye_color:s} eyes: 2.0, {eye_properties:s}, shaped pupils)",), ()),
                 "closed": (("(closed eyes)", "blind", "(^ ^:2.0)"), ("(open eyes)",))
-            }
+            },
             "expression": {
                 "default": (("blush",), ()),
                 "disdain": (("(grimace, disgust, scowl:2.5)", "(jitome:2.0, bored:1.2, averting eyes)"), ("smiling", "grinning", "((looking at viewer))")),
