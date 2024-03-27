@@ -10,7 +10,7 @@ class WaifuDiffusionModel(BaseModelCkpt, BooruPromptGenerator):
     def __init__(self, mode: str="illusion", **kwargs):
         assert mode in ACCEPTABLE_MODE, "Cannot create model of mode \"{}\" for WaifuDiffusionModel".format(mode)
         path = MODEL_PATH.format(mode)
-        super(WaifuDiffusionModel, self).__init__(path, vae_path=vae_path, **kwargs)
+        super(WaifuDiffusionModel, self).__init__(path, vae_path=VAE_PATH, **kwargs)
 
         # in addition, save a bunch of tested stuff to allow querying
         self.template = {
