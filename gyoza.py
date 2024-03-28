@@ -1,6 +1,14 @@
 """Gyoza model; requires further testing to create appropriate prompt for it."""
 
-from .base_model import BaseModelCkpt, BooruPromptGenerator 
+from .base_model import BaseModelCkpt, BooruPromptGenerator  
+from .waifu_diffusion import TEMPLATE as OLD_TEMPLATE
+
+TEMPLATE = dict(OLD_TEMPLATE)
+TEMPLATE["properties"] = {
+    "quality": (("(masterpiece, best quality, extremely detailed:1.4)", ) ("(Worst Quality, Low Quality:1.4), negfeet",)),
+    "break": (("BREAK", ), ()),
+    "type": (("1girl", "solo"), ())
+}
 
 ALL_MODEL_OPTIONS = {
     "mdl_linges": "https://huggingface.co/mdl-mirror/Store-Bought-Gyoza/blob/main/LingesGyoza.safetensors",
@@ -18,3 +26,5 @@ ALL_MODEL_OPTIONS = {
 class GyozaModel(BaseModelCkpt, BooruPromptGenerator):
     def __init__(self, mode="v3.2", **kwargs):
         super(GyozaModel, self).__init__(ALL_MODEL_OPTIONS[mode], vae_path=None, **kwargs)
+
+        self.template = TEMPLATE

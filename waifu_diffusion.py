@@ -20,7 +20,7 @@ class WaifuDiffusionModel(BaseModelCkpt, BooruPromptGenerator):
                 "dress_rich": (("({primary_color:s} dress, intricate dress, ornamented dress, {secondary_color:s} sleeves)", "({secondary_color:s} {preferred_accessory:s})"), ("(exposed skin)",)),
                 "wedding_dress": (("(wedding dress, lace), bridal veil", "{primary_color:s} ribbon", "{secondary_color:s} bouquet"), ()),
                 "armored": (("(battle dress: 1.2)", "(breastplate, helm, {preferred_metal:s} trim)", "(plate armor, {preferred_metal:s} ornament)", "({primary_color:s} skirt, long skirt)", ), ("bikini", "exposed")),
-                "military": (("(military uniform: 2.0)", "({preferred_metal:s} trim)", "({primary_color:s} coat, {primary_color:s} shirt)", "({secondary_color:s} shirt, collared shirt)", "service cap"), ("exposed", "low-cut")),
+                "military": (("(military uniform: 2.0)", "({preferred_metal:s} trim)", "({primary_color:s} coat, {primary_color:s} skirt)", "({secondary_color:s} shirt, collared shirt)", "service cap"), ("exposed", "low-cut")),
                 "cooking": (("({primary_color:s} sweater)", "({secondary_color:s} shirt, {secondary_color:s} pants, jeans)", "({secondary_color:s}-framed glasses, semi-rimless glasses)"), ("((shorts))", "((skirt))")),
             },
             "hair": {
@@ -45,7 +45,8 @@ class WaifuDiffusionModel(BaseModelCkpt, BooruPromptGenerator):
                 "cathedral": (("{additional_properties:s}", "stained glass", "cathedral", "marbled floor"), ("(plain background)",))
             },
             "pow": {
-                "close-up": (("(close-up:0.5)", "(upper body:1.5)", "(solo focus)"), ())
+                "close-up": (("(close-up:0.5)", "(upper body:1.5)", "(solo focus)"), ()),
+                "full-body": (("(full body:1.5)", "(straight-on: 0.5)"), ())
             },
             "properties": {
                 "type": (("1girl", "anime:2.0", "waifu:0.5"), ()),
