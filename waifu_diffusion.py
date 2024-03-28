@@ -48,7 +48,7 @@ TEMPLATE = {
 " censoring, bar censor, blur censor)", "((extra limbs)), extra face, (double head), (extra head), ((extra feet)), (extra hand)")),
          "negative_hand": ((), ("((mutated hands and fingers))", "extra digits", "fewer digits"))
      }
- }
+}
 
 class WaifuDiffusionModel(BaseModelCkpt, BooruPromptGenerator):
     def __init__(self, mode: str="illusion", **kwargs):
