@@ -5,7 +5,7 @@ from .waifu_diffusion import TEMPLATE as OLD_TEMPLATE
 
 TEMPLATE = dict(OLD_TEMPLATE)
 TEMPLATE["properties"] = {
-    "quality": (("(masterpiece, best quality, extremely detailed:1.4)", ) ("(Worst Quality, Low Quality:1.4), negfeet",)),
+    "quality": (("(masterpiece, best quality, extremely detailed:1.4)", ), ("(Worst Quality, Low Quality:1.4), negfeet",)),
     "break": (("BREAK", ), ()),
     "type": (("1girl", "solo"), ())
 }
