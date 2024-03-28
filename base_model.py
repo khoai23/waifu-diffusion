@@ -21,9 +21,10 @@ class BaseModelCkpt:
         # model
         if vae_path:
             vae = AutoencoderKL.from_single_file(vae_path, torch_dtype=torch.float16)
+            model = StableDiffusionPipeline.from_single_file(model_path, vae=vae, safety_checker=safety_checker, torch_dtype=torch.float16)
         else:
             vae = None 
-        model = StableDiffusionPipeline.from_single_file(model_path, vae=vae, safety_checker=safety_checker, torch_dtype=torch.float16)
+            model = StableDiffusionPipeline.from_single_file(model_path, safety_checker=safety_checker, torch_dtype=torch.float16)
         # extra-length tokenizer to allow very large input
         self.tokenizer = Compel(tokenizer=model.tokenizer, text_encoder=model.text_encoder)
         # move the model to associating devices
