@@ -38,7 +38,7 @@ class BaseModelCkpt:
         return super(BaseModelCkpt, self).__del__(self)
 
 
-    def generate_images(self, prompt: str, negative_prompt: str, guidance: float, img_count: int=2, num_inference_steps: int=200):
+    def generate_images(self, prompt: str, negative_prompt: str, guidance: float=7.5, img_count: int=2, num_inference_steps: int=200):
         conditioning = self.tokenizer.build_conditioning_tensor(prompt).to(self.device)
         negative_conditioning = self.tokenizer.build_conditioning_tensor(negative_prompt).to(self.device)
         images = self.model(prompt_embeds=conditioning, negative_prompt_embeds=negative_conditioning, num_inference_steps=num_inference_steps, guidance_scale=guidance, num_images_per_prompt=img_count).images
