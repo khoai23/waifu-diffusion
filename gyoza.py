@@ -1,4 +1,5 @@
-"""Gyoza model; requires further testing to create appropriate prompt for it."""
+"""Gyoza model; requires further testing to create appropriate prompt for it.
+Seems like useful if desiring 2.5D, pastel-like styles"""
 
 from .base_model import BaseModelCkpt, BooruPromptGenerator  
 from .waifu_diffusion import TEMPLATE as OLD_TEMPLATE
@@ -7,7 +8,8 @@ TEMPLATE = dict(OLD_TEMPLATE)
 TEMPLATE["properties"] = {
     "quality": (("(masterpiece, best quality)", ), ("(Worst Quality, Low Quality:1.4), negfeet",)),
     "break": (("BREAK", ), ()),
-    "type": (("1girl", "solo"), ())
+    "type": (("1girl", "solo"), ()),
+    "detailed": (("(extremely detailed)"), ())
 }
 
 ALL_MODEL_OPTIONS = {
@@ -20,7 +22,10 @@ ALL_MODEL_OPTIONS = {
     "v3": "https://huggingface.co/Jemnite/GyoZanMix/blob/main/factorygyozan/GyozaMixV3fp16.safetensors",
     "v3.2": "https://huggingface.co/Jemnite/GyoZanMix/blob/main/factorygyozan/GyozaMixV3.2fp16.safetensors",
     "v3.5": "https://huggingface.co/Jemnite/GyoZanMix/blob/main/factorygyozan/GyozaMixV3.5.safetensors",
-    "v5": "https://huggingface.co/Jemnite/GyoZanMix/blob/main/factorygyozan/GyozaMixV5.safetensors"
+    "v5": "https://huggingface.co/Jemnite/GyoZanMix/blob/main/factorygyozan/GyozaMixV5.safetensors",
+    "linges": "https://huggingface.co/Jemnite/GyoZanMix/blob/main/factorygyozan/LingesGyoza.safetensors",
+    "linges_dark": "https://huggingface.co/Jemnite/GyoZanMix/blob/main/factorygyozan/LingesGyozaAfterDark.safetensors",
+    "lines": "https://huggingface.co/Jemnite/GyoZanMix/blob/main/factorygyozan/GyozaLINES.safetensors"
 }
 
 class GyozaModel(BaseModelCkpt, BooruPromptGenerator):

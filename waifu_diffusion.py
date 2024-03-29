@@ -20,6 +20,7 @@ TEMPLATE = {
          "long": (("(long hair, {hair_properties:s}, {hair_color:s} hair:2.0)",), ("short hair",)),
          "medium": (("(medium hair, {hair_properties:s}, {hair_color:s} hair:2.0)",), ("short hair", )),
          "short": (("(short hair, {hair_properties:s}, {hair_color:s} hair:2.0)",), ("long hair", )),
+         "ponytail": (("(long ponytail: 1.5)", "{hair_properties:s}", "({hair_color:s} hair: 1.5)"), ("short hair", ))
          # extra option to exclusively kill ornaments
          "no_ornament": ((), ("(hair ornament)",))
      },
@@ -29,14 +30,16 @@ TEMPLATE = {
      },
      "expression": {
          "default": (("blush",), ()),
-         "disdain": (("(grimace, disgust, scowl:2.5)", "(jitome:2.0, bored:1.2, averting eyes)"), ("smiling", "grinning", "((looking at viewer))")),
+         "disdain": (("(grimace, disgust, scowl:2.5)", "(jitome:2.0, bored:1.2, averting eyes)"), ("smile", "grin", "((looking at viewer))")),
+         "happy": (("(smile:1.5, grin:1.5)", "happy"), ("sad", "grimace", "disgust"))
      },
      "context": {
          "default": (("{additional_properties:s}", "room:1.2"), ("looking at viewer",)),
-         "blank": (("{additional_properties:s}", "simple background"), ()),
+         "blank": (("{additional_properties:s}", "simple background"), ("detailed background", )),
          "outdoor": (("{additional_properties:s}", "park", "bench", "trees", "sunny"), ("cloudy", "night", "(plain background)")),
          "indoor": (("{additional_properties:s}", "room", "(wooden door)", "(leaning on wall)"), ("(plain background)",)),
-         "cathedral": (("{additional_properties:s}", "stained glass", "cathedral", "marbled floor"), ("(plain background)",))
+         "cathedral": (("{additional_properties:s}", "stained glass", "cathedral", "marbled floor"), ("(plain background)",)),
+         "forest": (("{additional_properties:s}", "landscape", "outdoor", "(forest:1.5)"), ("city", "cityscape", "urban", "architecture"))
      },
      "pow": {
          "close-up": (("(close-up:0.5)", "(upper body:1.5)", "(solo focus)"), ()),
