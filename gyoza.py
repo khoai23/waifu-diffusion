@@ -5,7 +5,7 @@ from .waifu_diffusion import TEMPLATE as OLD_TEMPLATE
 
 TEMPLATE = dict(OLD_TEMPLATE)
 TEMPLATE["properties"] = {
-    "quality": (("(masterpiece, best quality, extremely detailed:1.4)", ), ("(Worst Quality, Low Quality:1.4), negfeet",)),
+    "quality": (("(masterpiece, best quality)", ), ("(Worst Quality, Low Quality:1.4), negfeet",)),
     "break": (("BREAK", ), ()),
     "type": (("1girl", "solo"), ())
 }
@@ -18,7 +18,7 @@ ALL_MODEL_OPTIONS = {
     "default": "https://huggingface.co/Jemnite/GyoZanMix/blob/main/factorygyozan/StoreGyoza.safetensors",
     "v2": "https://huggingface.co/Jemnite/GyoZanMix/blob/main/factorygyozan/GyozaMixV2.safetensors",
     "v3": "https://huggingface.co/Jemnite/GyoZanMix/blob/main/factorygyozan/GyozaMixV3fp16.safetensors",
-    "v3.2": "https://huggingface.co/Jemnite/GyoZanMix/blob/main/factorygyozan/GyozaMixV3fp16.safetensors",
+    "v3.2": "https://huggingface.co/Jemnite/GyoZanMix/blob/main/factorygyozan/GyozaMixV3.2fp16.safetensors",
     "v3.5": "https://huggingface.co/Jemnite/GyoZanMix/blob/main/factorygyozan/GyozaMixV3.5.safetensors",
     "v5": "https://huggingface.co/Jemnite/GyoZanMix/blob/main/factorygyozan/GyozaMixV5.safetensors"
 }

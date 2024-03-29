@@ -10,7 +10,7 @@ TEMPLATE = {
      "attire": {
          "casual": (("({primary_color:s} coat, belt)", "({secondary_color:s} camisole, lace:2.0)", "(silver necklace)", "({secondary_color:s} {preferred_accessory:s})"), ("(exposed skin)", "(revealing clothes)")),
          "casual_skirt": (("({primary_color:s} sundress, long dress:1.2)", "({primary_color:s} hat, picture hat)", "({secondary_color:s} tanktop)", "({preferred_metal:s} necklace)"), ("schoolgirl", "student")),
-         "dress_rich": (("({primary_color:s} dress, intricate dress, ornamented dress, {secondary_color:s} sleeves)", "({secondary_color:s} {preferred_accessory:s})"), ("(exposed skin)",)),
+         "dress_rich": (("(long dress, {primary_color:s} dress, intricate dress, ornamented dress, {secondary_color:s} sleeves)", "({secondary_color:s} {preferred_accessory:s})"), ("(exposed skin)", "thigh")),
          "wedding_dress": (("(wedding dress, lace), bridal veil", "{primary_color:s} ribbon", "{secondary_color:s} bouquet"), ()),
          "armored": (("(battle dress: 1.2)", "(breastplate, helm, {preferred_metal:s} trim)", "(plate armor, {preferred_metal:s} ornament)", "({primary_color:s} skirt, long skirt)", ), ("bikini", "exposed")),
          "military": (("(military uniform: 2.0)", "({preferred_metal:s} trim)", "({primary_color:s} coat, {primary_color:s} skirt)", "({secondary_color:s} shirt, collared shirt)", "service cap"), ("exposed", "low-cut")),
@@ -33,6 +33,7 @@ TEMPLATE = {
      },
      "context": {
          "default": (("{additional_properties:s}", "room:1.2"), ("looking at viewer",)),
+         "blank": (("{additional_properties:s}", "simple background"), ())
          "outdoor": (("{additional_properties:s}", "park", "bench", "trees", "sunny"), ("cloudy", "night", "(plain background)")),
          "indoor": (("{additional_properties:s}", "room", "(wooden door)", "(leaning on wall)"), ("(plain background)",)),
          "cathedral": (("{additional_properties:s}", "stained glass", "cathedral", "marbled floor"), ("(plain background)",))
