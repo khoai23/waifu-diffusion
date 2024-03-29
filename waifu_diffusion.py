@@ -44,7 +44,7 @@ TEMPLATE = {
      },
      "pow": {
          "close-up": (("(close-up:0.5)", "(upper body:1.5)", "(solo focus)"), ("wide shot", )),
-         "full-body": (("(full body:1.5)", "(straight-on: 0.5)"), ())
+         "full-body": (("(full body:1.5)", "(straight-on: 0.5)"), ()),
          "wide": (("wide shot", "very wide shot"), ("(upper body)", "close-up"))
      },
      "properties": {
