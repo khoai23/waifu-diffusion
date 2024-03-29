@@ -20,7 +20,7 @@ TEMPLATE = {
          "long": (("(long hair, {hair_properties:s}, {hair_color:s} hair:2.0)",), ("short hair",)),
          "medium": (("(medium hair, {hair_properties:s}, {hair_color:s} hair:2.0)",), ("short hair", )),
          "short": (("(short hair, {hair_properties:s}, {hair_color:s} hair:2.0)",), ("long hair", )),
-         "ponytail": (("(long ponytail: 1.5)", "{hair_properties:s}", "({hair_color:s} hair: 1.5)"), ("short hair", ))
+         "ponytail": (("(long ponytail: 1.5)", "{hair_properties:s}", "({hair_color:s} hair: 1.5)"), ("short hair", )),
          # extra option to exclusively kill ornaments
          "no_ornament": ((), ("(hair ornament)",))
      },
