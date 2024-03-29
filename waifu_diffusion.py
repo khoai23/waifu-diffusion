@@ -33,7 +33,7 @@ TEMPLATE = {
      },
      "context": {
          "default": (("{additional_properties:s}", "room:1.2"), ("looking at viewer",)),
-         "blank": (("{additional_properties:s}", "simple background"), ())
+         "blank": (("{additional_properties:s}", "simple background"), ()),
          "outdoor": (("{additional_properties:s}", "park", "bench", "trees", "sunny"), ("cloudy", "night", "(plain background)")),
          "indoor": (("{additional_properties:s}", "room", "(wooden door)", "(leaning on wall)"), ("(plain background)",)),
          "cathedral": (("{additional_properties:s}", "stained glass", "cathedral", "marbled floor"), ("(plain background)",))
