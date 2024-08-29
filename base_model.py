@@ -21,7 +21,7 @@ class BaseModelCkpt:
     def __init__(self, model_path: str, vae_path: str=None, text_encoder_path: str=None, safety_checker: bool=None, device: str="cuda", vae_kwargs: Optional[dict]=dict(), text_encoder_kwargs: Optional[dict]=dict(), **kwargs):
         # model 
         if text_encoder_path:
-            text_encoder = CLIPTextModel(text_encoder_path, **text_encoder_kwargs)
+            text_encoder = CLIPTextModel.from_pretrained(text_encoder_path, **text_encoder_kwargs)
         else:
             text_encoder = None
         if vae_path:
