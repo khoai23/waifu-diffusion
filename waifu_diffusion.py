@@ -5,6 +5,7 @@ from .base_model import BaseModelCkpt, BooruPromptGenerator
 ACCEPTABLE_MODE = {"illusion", "ink", "mofu", "radiance"}
 MODEL_PATH = "https://huggingface.co/waifu-diffusion/wd-1-5-beta3/blob/main/wd-{:s}-fp16.safetensors"
 VAE_PATH = "https://huggingface.co/hakurei/waifu-diffusion-v1-4/blob/main/vae/kl-f8-anime2.ckpt"
+ENCODER_PATH = "https://https://huggingface.co/waifu-diffusion/wd-1-5-beta3/blob/main/text_encoder/model.fp16.safetensors"
 
 TEMPLATE = {
      "attire": {
@@ -57,10 +58,10 @@ TEMPLATE = {
 }
 
 class WaifuDiffusionModel(BaseModelCkpt, BooruPromptGenerator):
-    def __init__(self, mode: str="illusion", **kwargs):
+    def __init__(self, mode: str="illusion", vae_path=VAE_PATH, text_encoder_path=ENCODER_PATH, **kwargs):
         assert mode in ACCEPTABLE_MODE, "Cannot create model of mode \"{}\" for WaifuDiffusionModel".format(mode)
         path = MODEL_PATH.format(mode)
-        super(WaifuDiffusionModel, self).__init__(path, vae_path=VAE_PATH, **kwargs)
+        super(WaifuDiffusionModel, self).__init__(path, vae_path=vae_path, text_encoder_path=text_encoder_path, **kwargs)
 
         # in addition, save a bunch of tested stuff to allow querying
         self.template = TEMPLATE

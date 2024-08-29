@@ -5,7 +5,8 @@ import torch
 import os, io, PIL
 from IPython.display import display, Image
 import diffusers
-from diffusers import StableDiffusionImg2ImgPipeline, StableDiffusionXLPipeline, StableDiffusionPipeline, StableDiffusionInpaintPipeline, AutoencoderKL
+from diffusers import StableDiffusionImg2ImgPipeline, StableDiffusionXLPipeline, StableDiffusionPipeline, StableDiffusionInpaintPipeline, AutoencoderKL 
+from transformers import CLIPTextModel
 from compel import Compel, ReturnedEmbeddingsType
 from google.colab import files
 import base64
@@ -17,14 +18,17 @@ DRIVE_MOUNTED = [False]
 
 class BaseModelCkpt:
     """Model with checkpoint file in safetensors & optional vae in ckpt."""
-    def __init__(self, model_path: str, vae_path: str=None, safety_checker: bool=None, device: str="cuda", vae_kwargs: Optional[dict]=dict(), **kwargs):
-        # model
+    def __init__(self, model_path: str, vae_path: str=None, text_encoder_path: str=None, safety_checker: bool=None, device: str="cuda", vae_kwargs: Optional[dict]=dict(), text_encoder_kwargs: Optional[dict]=dict(), **kwargs):
+        # model 
+        if text_encoder_path:
+            text_encoder = CLIPTextModel(text_encoder_path, torch_dtype=torch.float16, **text_encoder_kwargs)
+        else:
+            text_encoder = None
         if vae_path:
             vae = AutoencoderKL.from_single_file(vae_path, torch_dtype=torch.float16, **vae_kwargs)
-            model = StableDiffusionPipeline.from_single_file(model_path, vae=vae, safety_checker=safety_checker, torch_dtype=torch.float16, **kwargs)
         else:
             vae = None 
-            model = StableDiffusionPipeline.from_single_file(model_path, safety_checker=safety_checker, torch_dtype=torch.float16, **kwargs)
+        model = StableDiffusionPipeline.from_single_file(model_path, vae=vae, text_encoder=text_encoder, safety_checker=safety_checker, torch_dtype=torch.float16, **kwargs)
         # extra-length tokenizer to allow very large input
         self.tokenizer = Compel(tokenizer=model.tokenizer, text_encoder=model.text_encoder)
         # move the model to associating devices
