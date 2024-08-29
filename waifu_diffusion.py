@@ -5,7 +5,7 @@ from .base_model import BaseModelCkpt, BooruPromptGenerator
 ACCEPTABLE_MODE = {"illusion", "ink", "mofu", "radiance"}
 MODEL_PATH = "https://huggingface.co/waifu-diffusion/wd-1-5-beta3/blob/main/wd-{:s}-fp16.safetensors"
 VAE_PATH = "https://huggingface.co/hakurei/waifu-diffusion-v1-4/blob/main/vae/kl-f8-anime2.ckpt"
-ENCODER_PATH = "https://https://huggingface.co/waifu-diffusion/wd-1-5-beta3/blob/main/text_encoder/model.fp16.safetensors"
+ENCODER_PATH = "https://huggingface.co/waifu-diffusion/wd-1-5-beta3/blob/main/text_encoder/model.fp16.safetensors"
 
 TEMPLATE = {
      "attire": {

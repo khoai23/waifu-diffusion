@@ -22,13 +22,11 @@ class BaseModelCkpt:
         # model 
         if text_encoder_path:
             text_encoder = CLIPTextModel.from_pretrained(text_encoder_path, **text_encoder_kwargs)
-        else:
-            text_encoder = None
+            kwargs["text_encoder"] = text_encoder
         if vae_path:
             vae = AutoencoderKL.from_single_file(vae_path, torch_dtype=torch.float16, **vae_kwargs)
-        else:
-            vae = None 
-        model = StableDiffusionPipeline.from_single_file(model_path, vae=vae, text_encoder=text_encoder, safety_checker=safety_checker, torch_dtype=torch.float16, **kwargs)
+            kwargs["vae"] = vae
+        model = StableDiffusionPipeline.from_single_file(model_path, safety_checker=safety_checker, torch_dtype=torch.float16, **kwargs)
         # extra-length tokenizer to allow very large input
         self.tokenizer = Compel(tokenizer=model.tokenizer, text_encoder=model.text_encoder)
         # move the model to associating devices
